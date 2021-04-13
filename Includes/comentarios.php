@@ -15,9 +15,19 @@
                 <p class="card-subtitle mb-1 text-muted"><small><?=$fetch->email?></small></p>
                 <p class="card-text font-weight-light"><?=strip_tags($fetch->comentario)?></p>
                 <p class="card-text"><small class="text-muted"><?=strip_tags(date('d/m/Y H:i', $fetch->data))?></small>
+                <?php 
+                    if (($_SESSION['loggedin'] == "Usuário não Logado")){
+                        echo '<div class="d-none">';
+                    }
+                ?>
                 <span class="float-right mr-2"><a href='<?php echo "../Acoes/deletar.php?id={$fetch->id}"?>'><img src="../Images/Icones/deletar.png" title="Deletar" alt="Deletar"></a></span>
                 <span class="float-right mr-3"><a href='<?php echo "../Pages/index.php?id={$fetch->id}"?>'><img src="../Images/Icones/editar.png" title="Editar" alt="Editar"></a></span></span>
                 </p>
+                <?php 
+                    if (($_SESSION['loggedin'] == "Usuário não Logado")){
+                     echo '</div>';
+                    }
+                     ?>
             </div>
         </div>
         </div>
