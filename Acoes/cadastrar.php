@@ -1,40 +1,46 @@
 <?php
 include('../Includes/variaveis.php');
+include('../Classes/classCrud.php');
 include('../Classes/classUsuario.php');
 include('../Classes/classPassword.php');
+include('../Classes/classImagem.php');
 
+$crud = new classCrud();
 $hash = new classPassword();
-
-if (isset($_POST['btnSalvar'])) {
-    if ($nome != '' && $email != '' && $cidade != '' && $estado != '') {
-        $crud->insertDB('clientes','?,?,?,?',array($nome, $email, $cidade, $estado),'nome, email, cidade, estado');
-        echo("<script>alert('Cliente Inserido')</script>");
-    } else {
-        echo("<script>alert('Preencher todos os campos')</script>");
-    }
-} else if (isset($_POST['btnEditar'])) {
-    if ($nome != '' && $email != '' && $cidade != '' && $estado != '' && $id != '') {
-        $crud->updateDB('clientes', 'nome = ?, email = ?, cidade = ?, estado = ?', $id, array($nome, $email, $cidade, $estado));
-        echo("<script>alert('Cliente Atualizado')</script>");
-    } else {
-        echo("<script>alert('Preencher todos os campos')</script>");
-    }
-} else if (isset($_POST['btnDeletar'])) {
-    if ($id != '') {
-        $crud->deleteDB('clientes', '?', array($id));
-        echo("<script>alert('Cliente Excluido')</script>");
-    } else {
-        echo("<script>alert('Preencher o campo id para excluir')</script>");
-    }
-}   else if (isset($_POST['btnCadastrar'])) {
-    if ($usuario != '' && $senha1 != '' && $senha2 != '') {
-        if($senha1 != $senha2){
-            echo("<script>alert('Senhas não Conferem')</script>");
+$imagem = new classImagem();
+      
+    //Evento botão Cadastrar Usuarios
+    if (isset($_POST['btnCadastrar'])) {
+        if ($usuario != '' && $senha1 != '' && $senha2 != '' && $foto['name'] != '') {
+            if ($senha1 != $senha2) {
+                echo("<script>alert('Senhas não Conferem')</script>");
+            } else {
+                $imagem->gravarFoto($foto);
+                $crud->insertDB('usuarios', '?,?,?,?', array($email, $usuario, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'email, usuario, senha, imagem');
+                echo("<script>alert('Usuário Cadastrado')</script>");
+                header("Location: login.php");
+            }
         } else {
-            $crud->insertDB('usuarios', '?,?', array($usuario, $hash->passwordHash($senha2)), 'usuario, senha');
-            echo("<script>alert('Usuário Cadastrado')</script>");
+            echo("<script>alert('Preencher todos os campos')</script>");
         }
-    } else {
-        echo("<script>alert('Preencher todos os campos')</script>");
     }
-}
+
+    //Evento botão Publicar Comentários
+    if (isset($_POST['btnPublicar'])) {
+        if ($acao == 'Cadastrar') {
+            if ($usuarioLogado != '' && $comentario != '') {
+                $crud->insertDB('comentarios', '?,?,?,?', array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado, isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario), 'usuario, email, data, comentario');
+                echo("<script>alert('Comentário Inserido')</script>");
+            } else {
+                echo("<script>alert('Preencher o comentário')</script>");
+            }
+        } else 
+        {
+            if ($usuarioLogado != '' && $comentario != '') {
+                $crud->updateDB('comentarios', 'usuario = ?, email = ?, data = ?, comentario = ?', $idHidden, array($usuarioLogado, $emailLogado, $data, $comentario));
+                echo("<script>alert('Comentário Editado')</script>");
+            } else {
+                echo("<script>alert('Preencher o comentário')</script>");
+            }
+        }
+    }

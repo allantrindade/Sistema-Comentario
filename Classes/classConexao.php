@@ -14,7 +14,7 @@
             $this->port = "3306";
             $this->user = "root";
             $this->password = "";
-            $this->database = "cadastro"; 
+            $this->database = "bdcomentarios"; 
         }
         
         //MÉTODO PARA CONECTAR COM O BANCO DE DADOS

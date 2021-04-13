@@ -1,11 +1,24 @@
 <?php
-$nome = isset($_POST['nome']) ? $_POST['nome'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
-$cidade = isset($_POST['cidade']) ? $_POST['cidade'] : '';
-$estado = isset($_POST['estado']) ? strtoupper($_POST['estado']) : '';
+session_start();
 $id = isset($_POST['id']) ? $_POST['id'] : '';
+$idHidden = isset($_SESSION['id']) ? $_SESSION['id'] : "" ;
+$email = isset($_POST['email']) ? $_POST['email'] : '';
 $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : '';
 $senha1 = isset($_POST['senha1']) ? $_POST['senha1'] : '';
 $senha2 = isset($_POST['senha2']) ? $_POST['senha2'] : '';
+$usuarioLogado = isset($_SESSION['loggedin']) ? $_SESSION['loggedin'] : 'anônimo';
+$emailLogado = isset($_SESSION['email']) ? $_SESSION['email'] : 'anônimo';
+$data = strtotime(date('Y/m/d H:i:s'));
+$comentario = isset($_POST['comentario']) ? $_POST['comentario'] : '';
 $rotas = isset($_GET['url']) ? $_GET['url'] : '';
+
+if (isset($_POST['acao'])) { 
+    $acao = $_POST['acao']; 
+} elseif(isset($_GET['id'])) {
+    $_SESSION['id'] = $_GET['id'];
+}else {
+    $acao = "";
+}
+
+$foto = isset($_FILES['foto']) ? $_FILES['foto'] : '';
 ?>

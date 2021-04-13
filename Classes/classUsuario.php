@@ -1,10 +1,7 @@
 <?php
 include_once('../Classes/classConexao.php');
 
-
-
     class classUsuario extends classConexao {
-        
 
         //METODO LOGAR
         public function login($usuario, $senha){
@@ -18,6 +15,7 @@ include_once('../Classes/classConexao.php');
                 $dado = $stmt->fetch();              
                 session_start();
                 $_SESSION['loggedin'] = $dado['usuario'];
+                $_SESSION['email'] = $dado['email'];
                 if ($h->verifyHash($senha ,$dado['senha'])) {
                     return true;
                 } else {
@@ -31,7 +29,8 @@ include_once('../Classes/classConexao.php');
         //METODO LOGOUT
         public function logout() {
             session_start();
-            session_destroy();
+            $_SESSION['loggedin'] = 'Usuário não Logado';
+            $_SESSION['email'] = '';
             header('Location: ../Pages/login.php');
         }
     }
