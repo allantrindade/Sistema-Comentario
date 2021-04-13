@@ -1,7 +1,7 @@
 <?php 
     
     include('../Includes/head.php');
-    include('../Acoes/cadastrar.php');
+    include('../Acoes/publcar.php');
     if(empty($_SESSION['loggedin'])){
         header("Location: login.php");
         exit;
@@ -10,7 +10,7 @@
     if (isset($_GET['id'])){
         $acao = "Editar";
     } else {
-        $acao = "Cadastrar";
+        $acao = "Publicar";
     }
 ?>
 <body class="bg-light">
