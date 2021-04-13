@@ -13,7 +13,7 @@ $imagem = new classImagem();
     if (isset($_POST['btnCadastrar'])) {
         if ($usuario != '' && $senha1 != '' && $senha2 != '' && $foto['name'] != '') {
             if ($senha1 != $senha2) {
-                echo("<script>alert('Senhas não Conferem')</script>");
+                echo("<script>swal('Senhas não Conferem')</script>");
             } else {
                 $imagem->gravarFoto($foto);
                 $crud->insertDB('usuarios', '?,?,?,?', array($email, $usuario, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'email, usuario, senha, imagem');
