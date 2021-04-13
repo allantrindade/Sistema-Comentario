@@ -17,8 +17,8 @@ $imagem = new classImagem();
             } else {
                 $imagem->gravarFoto($foto);
                 $crud->insertDB('usuarios', '?,?,?,?', array($email, $usuario, $hash->passwordHash($senha2), $imagem->gerarNome($foto)), 'email, usuario, senha, imagem');
-                echo("<script>alert('Usuário Cadastrado')</script>");
-                header("Location: login.php");
+                echo("<script>alert('Usuário Cadastrado');window.location
+                .href='login.php'</script>");
             }
         } else {
             echo("<script>alert('Preencher todos os campos')</script>");

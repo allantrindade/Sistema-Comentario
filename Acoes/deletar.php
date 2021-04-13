@@ -13,10 +13,11 @@ $usuarioLogado = $_SESSION['loggedin'];
 if (($idHidden != '')) {
     if ($usuarioLogado == $userHidden || $userHidden == 'anônimo') {
         $crud->deleteDB('comentarios', '?', array($idHidden));
-        echo("<script>alert('Comentário Excluido')</script>");
-        header("Location: ../Pages/index.php");
+        echo("<script>alert('Comentário Excluido');window.location
+        .href='../Pages/index.php'</script>");
     } else {
-        echo("<script>alert('Você pode excluir somente o seu comentário')</script>");
+        echo("<script>alert('Você pode excluir somente o seu comentário');window.location
+        .href='../Pages/index.php'</script>");
     }
 } else {
     echo("<script>alert('Preencher o campo id para excluir')</script>");

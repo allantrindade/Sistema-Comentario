@@ -13,10 +13,10 @@ include_once('../Classes/classConexao.php');
             
             if ($stmt->rowCount() > 0) {
                 $dado = $stmt->fetch();              
-                session_start();
-                $_SESSION['loggedin'] = $dado['usuario'];
-                $_SESSION['email'] = $dado['email'];
                 if ($h->verifyHash($senha ,$dado['senha'])) {
+                    session_start();
+                    $_SESSION['loggedin'] = $dado['usuario'];
+                    $_SESSION['email'] = $dado['email'];
                     return true;
                 } else {
                     return false;

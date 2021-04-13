@@ -18,8 +18,6 @@
             $foto = md5($foto['name']);
             $nomeCompleto = "{$foto}.{$ext}";
             return $nomeCompleto;
-            var_dump($nomeCompleto);
-            exit;
         }
 
         //METODO PARA GRAVAR O ARQUIVO NA PASTA IMAGES
