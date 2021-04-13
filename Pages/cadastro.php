@@ -9,7 +9,7 @@
                 <h1 class="h3 mt-3 mb-3 font-weight-normal">Cadastro de Usuário</h1>
                 <p>Seja bem-vindo!</p>
                 <div class="form-group col-8 mx-auto">
-                    <input class="form-control-file" type="file" name="foto" accept=".jpg, .png">
+                    <input class="form-control-file" type="file" name="foto" accept=".jpg, .png, .gif, .bmp, .jpeg">
                 </div>
                 <div class="form-group col-8 mx-auto">
                     <input type="email" name="email" class="form-control" placeholder="Email" required>
