@@ -20,8 +20,8 @@
                         echo '<div class="d-none">';
                     }
                 ?>
-                <span class="float-right mr-2"><a href='<?php echo "../Acoes/deletar.php?id={$fetch->id}"?>'><img src="../Images/Icones/deletar.png" title="Deletar" alt="Deletar"></a></span>
-                <span class="float-right mr-3"><a href='<?php echo "../Pages/index.php?id={$fetch->id}"?>'><img src="../Images/Icones/editar.png" title="Editar" alt="Editar"></a></span></span>
+                <span class="float-right mr-2"><a href='<?php echo "../Acoes/deletar.php?id={$fetch->id}&user={$fetch->usuario}"?>'><img src="../Images/Icones/deletar.png" title="Deletar" alt="Deletar"></a></span>
+                <span class="float-right mr-3"><a href='<?php echo "../Pages/index.php?id={$fetch->id}&user={$fetch->usuario}"?>'><img src="../Images/Icones/editar.png" title="Editar" alt="Editar"></a></span></span>
                 </p>
                 <?php 
                     if (($_SESSION['loggedin'] == "Usuário não Logado")){
