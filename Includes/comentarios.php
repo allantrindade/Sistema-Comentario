@@ -1,7 +1,6 @@
 <?php
     $crud = new classCrud();
     $result = $crud->selectDB('*', 'comentarios', 'ORDER BY id desc', array());               
-     //   if (!empty($result)) {
             while ($fetch = $result->fetch(PDO::FETCH_OBJ)) {
                 $usuario = $crud->selectDB('imagem', 'usuarios', "WHERE usuario ='{$fetch->usuario}'", array())->fetch(PDO::FETCH_OBJ);       
                 ?>
@@ -23,14 +22,6 @@
         </div>
         </div>
         </div>   
-    <?php
-    echo ($result);
+<?php
     }
-//}
-//else {
-    
-    ?>
-        <!-- <p class="card-text text-center">Não temos comentários recentes !</p> -->
-    <?php
-        //}
-    ?>
+?>
