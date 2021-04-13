@@ -3,7 +3,7 @@ include('../Classes/classCrud.php');
 
 $crud = new classCrud();
 
-$idHidden = filter_input(INPUT_GET,'id',FILTER_SANITIZE_SPECIAL_CHARS);
+$idHidden = isset($_GET['id']) ? $_GET['id'] : "";
 
 if ($idHidden != '') {
     $crud->deleteDB('comentarios', '?', array($idHidden));
