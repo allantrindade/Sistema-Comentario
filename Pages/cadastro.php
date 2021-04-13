@@ -23,8 +23,13 @@
                 <div class="form-group col-8 mx-auto">
                     <input type="password" name="senha2" class="form-control" placeholder="Confirmar Senha" required>
                 </div>
-                <div class="mx-auto col-3">
-                    <button name="btnCadastrar" class="btn btn-dark btn-block" type="submit">Cadastrar</button>
+                <div class="row">
+                    <div class="ml-auto col-3">                  
+                        <button name="btnCadastrar" class="btn btn-dark btn-block" type="submit">Cadastrar</button>
+                    </div>
+                    <div class="mr-auto col-3"> 
+                        <a name="btnVoltar" class="btn btn-outline-dark btn-block" href="../Pages/login.php">Voltar</a>
+                    </div>
                 </div>        
         </form>    
     </div>
