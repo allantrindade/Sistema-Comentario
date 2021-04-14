@@ -3,7 +3,7 @@
     $u = new classUsuario();
 
     if ($u->logout()) {
-        echo "<script>alert('Logout feito com sucesso');window.location.href='../Pages/login.php'</script>";   
+        echo "<script>window.location.href='../Pages/login.php'</script>";   
     }
 ?>
     

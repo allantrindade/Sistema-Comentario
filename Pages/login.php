@@ -1,7 +1,9 @@
 <?php
     include('../Includes/head.php');
-    include('../Acoes/logar.php');   
+    include('../Acoes/logar.php');
+    isset($_SESSION['loggedin']) ?? "Usuário não Logado";
 ?>
+
 
 <body class='container bg-light'>
     <div class="card text-center p-5 mx-auto" style="width:50vw">
