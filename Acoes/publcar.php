@@ -12,7 +12,7 @@ if (isset($_POST['btnPublicar']) && $acao == 'Publicar') {
     } 
     elseif ($mensagemErro === ""){
         $crud->insertDB('comentarios', '?,?,?,?', array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado,
-        isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario), 'usuario, email, data, comentario');
+        isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario), 'usuario, email, data_criacao, comentario');
         echo("<script>alert('Comentário Inserido')</script>");
     }
 }

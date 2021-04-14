@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-10">
             <div class="card-body p-2">
-                <span class="float-right text-muted"><?=date('d/m/Y H:i', $fetch->data)?></span>
+                <span class="float-right text-muted"><?=date('d/m/Y H:i', $fetch->data_criacao)?></span>
                 <h5 class="card-title mb-0 font-weight-normal"><?=$fetch->id?> - <?=$fetch->usuario?></h5>
                 <p class="card-subtitle mb-1 text-muted"><small><?=$fetch->email?></small></p>
                 <p class="card-text font-weight-light"><?=$fetch->comentario?></p>

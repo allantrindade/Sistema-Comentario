@@ -13,6 +13,6 @@ CREATE TABLE comentarios
 	( id INT PRIMARY KEY AUTO_INCREMENT,
 	  usuario VARCHAR( 30 ) NOT NULL,
 	  email VARCHAR( 30 ) NOT NULL,
-      data VARCHAR( 15 ) NOT NULL,
+      data_criacao VARCHAR( 15 ) NOT NULL,
 	  data_edicao VARCHAR( 15 ),
 	  comentario VARCHAR( 255 ) NOT NULL);
