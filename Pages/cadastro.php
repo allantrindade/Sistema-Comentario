@@ -12,16 +12,16 @@
                     <input class="form-control-file" type="file" name="foto" accept=".jpg, .png, .gif, .bmp, .jpeg">
                 </div>
                 <div class="form-group col-8 mx-auto">
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    <input type="text" name="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group col-8 mx-auto">
-                    <input type="usuario" name="usuario" class="form-control" placeholder="Usuário" required>
+                    <input type="usuario" name="usuario1" class="form-control" placeholder="Usuário">
                 </div>
                 <div class="form-group col-8 mx-auto">
-                    <input type="password" name="senha1" class="form-control" placeholder="Senha" required>
+                    <input type="password" name="senha1" class="form-control" placeholder="Senha">
                 </div>
                 <div class="form-group col-8 mx-auto">
-                    <input type="password" name="senha2" class="form-control" placeholder="Confirmar Senha" required>
+                    <input type="password" name="senha2" class="form-control" placeholder="Confirmar Senha">
                 </div>
                 <div class="row">
                     <div class="ml-auto col-3">                  
@@ -30,7 +30,7 @@
                     <div class="mr-auto col-3"> 
                         <a name="btnVoltar" class="btn btn-outline-dark btn-block" href="../Pages/login.php">Voltar</a>
                     </div>
-                </div>        
+                </div>       
         </form>    
     </div>
 </body>

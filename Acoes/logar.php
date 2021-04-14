@@ -4,15 +4,17 @@
     include('../Classes/classPassword.php');
     $u = new classUsuario();
 
-
-    if (isset($_POST['usuario']) && !empty($_POST['usuario']) && isset($_POST['senha']) && !empty($_POST['senha'])) {
-        
-        $usuario = addslashes($_POST['usuario']);
-        $senha = addslashes($_POST['senha']);
-        if($u->login($usuario, $senha) == true) {
-                header("Location: index.php");
-        } else {
-                echo "<script>alert('Usuário ou Senha incorretos!')</script>";
+    if (isset($_POST['btnLogar'])){
+        if ($usuario == '' || $senha == '') {
+            $mensagemErro = "<script>alert('Preencher todos os campos.')</script>";
+            echo $mensagemErro;
         }
-    } 
+        elseif ($mensagemErro === '') {
+            if($u->login($usuario, $senha)) {
+                header("Location: index.php");
+            } else {
+                echo "<script>alert('Usuário ou Senha incorretos!')</script>";
+            }
+        }
+    }    
 ?>

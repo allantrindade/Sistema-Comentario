@@ -31,6 +31,6 @@ include_once('../Classes/classConexao.php');
             session_start();
             $_SESSION['loggedin'] = 'Usuário não Logado';
             $_SESSION['email'] = '';
-            header('Location: ../Pages/login.php');
+            return true;
         }
     }

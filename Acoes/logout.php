@@ -2,7 +2,8 @@
     include('../Classes/classUsuario.php');
     $u = new classUsuario();
 
-    $u->logout();
-
+    if ($u->logout()) {
+        echo "<script>alert('Logout feito com sucesso');window.location.href='../Pages/login.php'</script>";   
+    }
 ?>
     

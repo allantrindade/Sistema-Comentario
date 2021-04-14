@@ -8,17 +8,18 @@ $userHidden = isset($_GET['user']) ? $_GET['user'] : "";
 
 session_start();
 $usuarioLogado = $_SESSION['loggedin'];
+$mensagemErro = '';
 
 
-if (($idHidden != '')) {
-    if ($usuarioLogado == $userHidden || $userHidden == 'anônimo') {
-        $crud->deleteDB('comentarios', '?', array($idHidden));
-        echo("<script>alert('Comentário Excluido');window.location
-        .href='../Pages/index.php'</script>");
-    } else {
-        echo("<script>alert('Você pode excluir somente o seu comentário');window.location
-        .href='../Pages/index.php'</script>");
-    }
-} else {
-    echo("<script>alert('Preencher o campo id para excluir')</script>");
+if (($idHidden == '')) {
+    $mensagemErro = "<script>alert('Preencher o campo id para excluir')</script>";
+    echo $mensagemErro;
+}
+elseif ($usuarioLogado != $userHidden && $userHidden != 'anônimo') {
+    $mensagemErro = "<script>alert('Você pode excluir somente o seu comentário');window.location.href='../Pages/index.php'</script>";
+    echo $mensagemErro;
+}
+elseif ($mensagemErro === '') {
+    $crud->deleteDB('comentarios', '?', array($idHidden));
+    echo("<script>alert('Comentário Excluido');window.location.href='../Pages/index.php'</script>");
 }
