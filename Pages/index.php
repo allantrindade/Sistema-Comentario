@@ -13,8 +13,8 @@
         $acao = "Publicar";
     }
 ?>
-<body class="bg-light">
-    <div class="container">
+<body class="container bg-light">
+    <div class="container bg-white">
         <header>
             <img src="../Images/Header/header.jpg" style="width: 100%;" alt="Sistema de Comentários">
         </header>
