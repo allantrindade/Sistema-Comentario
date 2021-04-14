@@ -1,7 +1,6 @@
 <?php
     include('../Includes/head.php');
     include('../Acoes/logar.php');
-    isset($_SESSION['loggedin']) ?? "Usuário não Logado";
 ?>
 
 

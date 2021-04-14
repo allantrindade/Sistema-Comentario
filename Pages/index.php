@@ -3,8 +3,8 @@
     include('../Includes/head.php');
     include('../Acoes/publcar.php');
     if(empty($_SESSION['loggedin'])){
-        header("Location: login.php");
-        exit;
+        $_SESSION['loggedin'] = "Usuário não Logado";
+        header("Location: login.php");      
     }
 
     if (isset($_GET['id'])){
