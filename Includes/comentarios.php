@@ -11,10 +11,11 @@
         </div>
         <div class="col-md-10">
             <div class="card-body p-2">
-                <h5 class="card-title mb-0 font-weight-normal"><?=strip_tags($fetch->id)?> - <?=strip_tags($fetch->usuario)?></h5>
+                <span class="float-right text-muted"><?=date('d/m/Y H:i', $fetch->data)?></span>
+                <h5 class="card-title mb-0 font-weight-normal"><?=$fetch->id?> - <?=$fetch->usuario?></h5>
                 <p class="card-subtitle mb-1 text-muted"><small><?=$fetch->email?></small></p>
-                <p class="card-text font-weight-light"><?=strip_tags($fetch->comentario)?></p>
-                <p class="card-text"><small class="text-muted"><?=strip_tags(date('d/m/Y H:i', $fetch->data))?></small>
+                <p class="card-text font-weight-light"><?=$fetch->comentario?></p>
+                <p class="card-text"><small class="text-muted"><?php if(!empty($fetch->data_edicao)) {echo "Editado: " . date('d/m/Y H:i', $fetch->data_edicao);}?></small>
                 <?php 
                     if (($_SESSION['loggedin'] == "Usuário não Logado")){
                         echo '<div class="d-none">';

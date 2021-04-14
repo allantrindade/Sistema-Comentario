@@ -23,7 +23,7 @@ if (isset($_POST['btnPublicar']) && $acao == 'Editar') {
         echo $mensagemErro;
     } 
     elseif ($mensagemErro === ""){
-        $crud->updateDB('comentarios', 'usuario = ?, email = ?, data = ?, comentario = ?',
+        $crud->updateDB('comentarios', 'usuario = ?, email = ?, data_edicao = ?, comentario = ?',
         $idHidden, array(isset($_POST['anonimo']) ? 'anônimo' : $usuarioLogado, isset($_POST['anonimo']) ? 'anônimo' : $emailLogado, $data, $comentario));     
         echo("<script>alert('Comentário Editado')</script>");
     }
